@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App - Enterprise Demo</title>
+    <meta name="description" content="A modern weather application demonstrating enterprise development practices">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌤️</text></svg>">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">
+                <span class="icon">🌤️</span>
+                Weather App
+            </h1>
+            <p class="subtitle">Enterprise Development Demo</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Search Form -->
+            <div class="search-section">
+                <form class="search-form" id="weatherForm">
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            id="locationInput" 
+                            class="location-input" 
+                            placeholder="Enter city name (e.g., Madrid, London, Tokyo)"
+                            required
+                            autocomplete="off"
+                        >
+                        <button type="submit" class="search-button" id="searchButton">
+                            <span class="button-text">Get Weather</span>
+                            <span class="loading-spinner" id="loadingSpinner"></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section" id="resultsSection">
+                <!-- Loading State -->
+                <div class="loading" id="loadingState">
+                    <div class="loading-animation"></div>
+                    <p>Fetching weather data...</p>
+                </div>
+
+                <!-- Error State -->
+                <div class="error" id="errorState">
+                    <div class="error-icon">⚠️</div>
+                    <h3 class="error-title">Oops! Something went wrong</h3>
+                    <p class="error-message" id="errorMessage"></p>
+                    <button class="retry-button" id="retryButton">Try Again</button>
+                </div>
+
+                <!-- Success State -->
+                <div class="weather-card" id="weatherCard">
+                    <div class="weather-header">
+                        <h2 class="location-name" id="locationName"></h2>
+                        <p class="country-name" id="countryName"></p>
+                    </div>
+                    
+                    <div class="weather-main">
+                        <div class="temperature-section">
+                            <span class="temperature" id="temperature"></span>
+                            <span class="weather-description" id="weatherDescription"></span>
+                        </div>
+                        
+                        <div class="weather-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Humidity</span>
+                                <span class="detail-value" id="humidity"></span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Wind Speed</span>
+                                <span class="detail-value" id="windSpeed"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="weather-footer">
+                        <p class="last-updated" id="lastUpdated"></p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="footer-text">
+                Built with ❤️ to demonstrate enterprise development practices
+            </p>
+            <div class="tech-stack">
+                <span class="tech-item">Python Flask</span>
+                <span class="tech-item">Docker</span>
+                <span class="tech-item">GitHub Actions</span>
+                <span class="tech-item">OpenWeatherMap API</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="/assets/js/app.js"></script>
+</body>
+</html>
