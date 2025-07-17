@@ -1,4 +1,4 @@
-FROM python:3.11-alpine
+FROM python:alpine
 
 # Alpine uses apk instead of apt-get
 RUN apk add --no-cache curl
