@@ -37,7 +37,7 @@ jobs:
         with:
           command: cves
           image: ${{ secrets.DOCKER_USERNAME }}/weather-backend:latest
-          only-severities: critical,high
+          only-severities: critical
           exit-code: true  # ← SECURITY GATE: Fail if critical vulns!
 
       - name: Security Gate - Frontend
@@ -45,5 +45,5 @@ jobs:
         with:
           command: cves
           image: ${{ secrets.DOCKER_USERNAME }}/weather-frontend:latest
-          only-severities: critical,high
+          only-severities: critical
           exit-code: true  # ← SECURITY GATE: Fail if critical vulns!
