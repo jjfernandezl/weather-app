@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  backend:
+    # Override for local development
+    volumes:
+      - ./backend:/app
+      - /app/__pycache__
+    environment:
+      - FLASK_DEBUG=true
+      - PYTHONPATH=/app
+    command: python app.py
+    
+  frontend:
+    # Override for local development
+    volumes:
+      - ./frontend/src:/usr/share/nginx/html:ro
+      - ./frontend/assets:/usr/share/nginx/html/assets:ro
+    
+  # Development tools
+  adminer:
+    image: adminer:latest
+    container_name: weather-adminer-dev
+    ports:
+      - "8080:8080"
+    networks:
+      - weather-network
+    profiles:
+      - dev-tools
